@@ -1,0 +1,11 @@
+{
+    "titre": "Bienvenue au 411",
+    "message_main": "Bonjour!",
+    "modal": {
+        "submit": "Soummetre",
+        "cancel": "Annuler",
+        "closed": "La fenêtre modal a été fermée",
+        "submited": "Soumettre a été cliqué",
+        "canceled": "Annuler a été cliqué"
+    }
+}

@@ -1,4 +1,5 @@
 import { React } from "react";
+import { t } from "i18next";
 
 import "./Modal.css";
 
@@ -8,13 +9,13 @@ export const Modal = ({ onSubmit, onCancel, closeModal, children }) => {
       className="modal-container"
       onClick={(e) => {
         if (e.target.className === "modal-container")
-          closeModal("Modal a été fermé");
+          closeModal(t("modal.closed"));
       }}
     >
       <div className="modal">
         <div
           className="modal-header"
-          onClick={() => closeModal("Modal a été fermé")}
+          onClick={() => closeModal(t("modal.closed"))}
         >
           <p className="close">&times;</p>
         </div>
@@ -23,16 +24,16 @@ export const Modal = ({ onSubmit, onCancel, closeModal, children }) => {
           <button
             type="submit"
             className="btn btn-submit"
-            onClick={() => onSubmit("Bouton Soumettre a été cliqué")}
+            onClick={() => onSubmit(t("modal.submited"))}
           >
-            Soumettre
+            {t("modal.submit")}
           </button>
           <button
             type="submit"
             className="btn btn-cancel"
-            onClick={() => onCancel("Annuler Soumettre a été cliqué")}
+            onClick={() => onCancel(t("modal.canceled"))}
           >
-            Annuler
+            {t("modal.cancel")}
           </button>
         </div>
       </div>

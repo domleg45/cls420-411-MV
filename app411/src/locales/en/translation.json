@@ -1,0 +1,11 @@
+{
+    "titre": "Welcome to 411",
+    "message_main": "Hello!",
+    "modal": {
+        "submit": "Submit",
+        "cancel": "Cancel",
+        "closed": "The modal was closed",
+        "submited": "Submit was clicked",
+        "canceled": "Cancel was clicked"
+    }
+}
