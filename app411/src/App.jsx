@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       {message}
       <button className="btn btn-open" onClick={() => setModalOpen(true)}>
-        Ouvrir
+      {t("open")}
       </button>
       {modalOpen &&
         createPortal(

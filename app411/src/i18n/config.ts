@@ -20,7 +20,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: "fr",
+    lng: "en",
     fallbackLng: "en", // use en if detected lng is not available
 
     interpolation: {
