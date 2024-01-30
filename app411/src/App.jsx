@@ -1,38 +1,40 @@
 import { useState } from "react";
-import { createPortal } from "react-dom";
 import "./App.css";
-import { Modal } from "./components/Modal";
+import FormInput from "./components/FormInput";
 import { t } from "i18next";
 
 function App() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [message, setMessage] = useState("");
 
-  const handleButtonClick = (value) => {
-    setModalOpen(false);
-    setMessage(value);
+  const handleButtonClick = (e) => {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    console.log(Object.fromEntries(data.entries()))
   };
 
+  const [values, setValues] = useState({
+    nom: "",
+    prenom: "",
+    age: "",
+    alias: "",
+  });
+
+  const onChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
+
+console.log(values);
 
   return (
     <div className="App">
-      {message}
-      <button className="btn btn-open" onClick={() => setModalOpen(true)}>
-      {t("open")}
-      </button>
-      {modalOpen &&
-        createPortal(
-          <Modal
-            closeModal={handleButtonClick}
-            onSubmit={handleButtonClick}
-            onCancel={handleButtonClick}
-          >
-            <h1>{t("titre")}</h1>
-            <br />
-            <p>{t("message_main")}</p>
-          </Modal>,
-          document.body
-        )}
+      <form onSubmit={handleButtonClick}>
+        ­<FormInput name="nom" label="Entrez votre nom" placeholder="nom" onChange={onChange}/>
+        <FormInput name="prenom" label="Entrez votre prénom" placeholder="prénom" onChange={onChange}/>
+        <FormInput name="age" label="Entrez votre âge" placeholder="âge" onChange={onChange}/>
+        <FormInput name="alias" label="Entrez votre alias" placeholder="alias" onChange={onChange}/>
+        <button className="btn btn-open">
+          {t("open")}
+        </button>
+      </form>
     </div>
   );
 }
